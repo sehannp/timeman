@@ -1,0 +1,15 @@
+.clock-container{
+    width: 100%;
+    text-align: center;
+    border: solid salmon 2px;
+    /* height: 100px; */
+}
+
+.time{
+    width: 100%;
+    text-align: center;
+    border: solid salmon 2px;
+    height: 100px;
+    font-size: 400%;
+    /* padding: 0px 0px 40px 0px; */
+}

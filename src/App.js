@@ -1,26 +1,64 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Header from './Components/Header/Header';
+import ClockNow from './Components/Clocknow/ClockNow';
+import AddEntry from './Components/AddEntry/AddEntry';
+import AllActs from './Components/AllActs/AllActs';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// import Footer from './Components/Footer';
+
+
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      activities: [{
+        activity:"",
+        startime:"", 
+        endtime:""
+    }]}
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(activity,startime, endtime){
+    this.setState({
+      activities: [
+        ...this.state.activities,
+        {activity,startime, endtime}
+      ]
+    });
+  }
+
+  render() {
+    console.log("i am rendering");
+    return (
+      <div className="App">
+        <Header></Header>
+  
+        <div className="clocks">
+          <h1>Clocks</h1>
+          <ClockNow></ClockNow>
+        </div>
+        <hr/>
+
+        <div className="today">
+          <h1>Today's Activity Log</h1>
+          <AddEntry onClicker={this.onSubmit}></AddEntry>
+        </div>
+        <hr/>
+        
+        <div>
+          <AllActs data={this.state.activities}></AllActs>
+        </div>
+         
+         
+        {/*
+        <Footer></Footer> */}
+      </div>
+      
+    );
+  }
+  
 }
 
 export default App;
