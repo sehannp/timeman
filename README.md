@@ -8,7 +8,7 @@ It has the following features:
 
 # Future updates:
 - UI upgrades
-~~* Manual time setting feature at start.~~
+  * ~~Manual time setting feature at start.~~
   * Manual time setting feature even after stop.
   * Reordering list
   * Total productive hours display
