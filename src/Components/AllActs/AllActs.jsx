@@ -11,7 +11,7 @@ class AllActs extends Component {
                     
                 </div>
                 { data.map((element,index) => {
-                    return(<Act key={index} activity={element.activity}></Act>)
+                    return(<Act key={index} element={element}></Act>)
                 })}
                 <div className="tf">
                     

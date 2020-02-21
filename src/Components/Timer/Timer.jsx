@@ -41,7 +41,7 @@ class Stopwatch extends Component {
     const {isRunning, timeElapsed} = this.state;
     return (
       <div className="elapsedtime-container">
-        <TimeElapsed id="timer" timeElapsed={timeElapsed} />
+        <TimeElapsed id="timer" timeElapsed={timeElapsed} userTime={this.props.element}/>
         <button className="timerButton" onClick={this.toggle}>
           {isRunning ? 'Stop' : 'Start'}
         </button>

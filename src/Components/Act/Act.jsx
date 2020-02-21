@@ -16,12 +16,12 @@ class Act extends Component {
     }
 
     render() {
-        const {index,activity} = this.props;
+        const {index,element} = this.props;
 
         return(
             <div key={index} className="act-container">
-                <p key={index}>{activity}</p>
-                <Timer key={index}></Timer>
+                <p key={index}>{element.activity}</p>
+                <Timer key={index} element={element}></Timer>
             </div>
         )
     }
