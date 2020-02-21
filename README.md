@@ -8,6 +8,11 @@ It has the following features:
 
 # Future updates:
 1. UI upgrades
+    ~~i. Manual time setting feature at start.~~
+     ii. Manual time setting feature even after stop.
+    iii. Reordering list
+     iv. Total productive hours display
+      v. Submit button for full logs
 2. Dark mode and Light Mode for UI
 3. Implementation of React redux to allow for scalability
 4. Store today's data persistently in the browser.
