@@ -26,7 +26,6 @@ class App extends Component {
   }
 
   render() {
-    console.log("i am rendering");
     return (
       <div className="App">
         <Header></Header>
