@@ -12,11 +12,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      activities: [{
-        activity:"",
-        startime:"", 
-        endtime:""
-    }]}
+      activities: []}
     this.onSubmit = this.onSubmit.bind(this);
   }
 
