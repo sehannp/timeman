@@ -1,0 +1,18 @@
+
+.act-container{
+    display: grid;
+    grid-template-columns: 300px 300px;
+}
+
+p {
+    background-color: lightslategray;
+    color:black;
+    padding: 2px;
+    border-radius: 5px;
+    /* width: 30%; */
+}
+
+.allacts{
+    padding: 20px;
+    border: 1px lightslategray dotted;
+}
