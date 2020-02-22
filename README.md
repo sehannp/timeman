@@ -22,4 +22,4 @@ It has the following features:
   * [ ] About Page
   * [ ] User Page
   * [ ] Submit Page
-- [ ] Welcome quote on main page
+- [x] Welcome quote on main page
