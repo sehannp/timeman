@@ -9,7 +9,7 @@ It has the following features:
 # Future updates:
 - [ ] UI upgrades
   * [x] Manual time setting feature at start.
-  * [ ] Manual time setting feature even after stop.
+  * [x] Manual time setting feature even after stop.
   * [ ] Reordering list
   * [ ] Total productive hours display
   * [ ] Submit button for full logs
