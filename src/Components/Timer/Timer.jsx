@@ -5,16 +5,30 @@ class Stopwatch extends Component {
   constructor(props) {
     super(props);
     
+    this.getTime = this.getTime.bind(this);
+
     ["update", "reset", "toggle"].forEach((method) => {
         this[method] = this[method].bind(this);
     });
 
     this.state = this.initialState = {
       isRunning: false,
-      timeElapsed: 0,
+      timeElapsed: this.getTime(),
     };
 
     this.getUpdValues = this.getUpdValues.bind(this);
+  }
+
+
+  getTime() {
+    if (this.props.element.startime)
+    {
+      const {startime, endtime} = this.props.element;
+      const startSec = parseInt(startime.split(":")[0]) * 60 + parseInt(startime.split(":")[1]);
+      const endSec = parseInt(endtime.split(":")[0]) * 60 + parseInt(endtime.split(":")[1]);
+      return (Math.ceil(endSec - startSec))*1000;
+    }
+    return 0;
   }
 
   getUpdValues(value) {

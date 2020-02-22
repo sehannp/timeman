@@ -13,7 +13,7 @@ class TimeElapsed extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
   }
-  
+
   componentDidMount(){
 
   }
@@ -39,7 +39,8 @@ class TimeElapsed extends Component {
 
   getUnitsText(inputVal) {
     if (!inputVal){
-      const seconds = (this.props.timeElapsed / 1000) + this.getTime()
+      const seconds = (this.props.timeElapsed / 1000) 
+      // + this.getTime()
       const units =  {
         min: Math.floor(seconds / 60).toString(),
         sec: Math.floor(seconds % 60).toString(),
