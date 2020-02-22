@@ -13,7 +13,14 @@ class Stopwatch extends Component {
       isRunning: false,
       timeElapsed: 0,
     };
+
+    this.getUpdValues = this.getUpdValues.bind(this);
   }
+
+  getUpdValues(value) {
+    this.setState({timeElapsed:value});
+    console.log(this.state.timeElapsed);
+  };
 
   toggle() {
     this.setState({isRunning: !this.state.isRunning}, () => {
@@ -41,7 +48,7 @@ class Stopwatch extends Component {
     const {isRunning, timeElapsed} = this.state;
     return (
       <div className="elapsedtime-container">
-        <TimeElapsed id="timer" timeElapsed={timeElapsed} userTime={this.props.element}/>
+        <TimeElapsed id="timer" timeElapsed={timeElapsed} userTime={this.props.element} getUpdValues={this.getUpdValues}/>
         <button className="timerButton" onClick={this.toggle}>
           {isRunning ? 'Stop' : 'Start'}
         </button>
