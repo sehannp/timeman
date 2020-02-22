@@ -5,9 +5,7 @@ class Stopwatch extends Component {
   constructor(props) {
     super(props);
     
-    this.getTime = this.getTime.bind(this);
-
-    ["update", "reset", "toggle"].forEach((method) => {
+    ["update", "reset", "toggle","getTime", "getUpdValues"].forEach((method) => {
         this[method] = this[method].bind(this);
     });
 
@@ -15,8 +13,6 @@ class Stopwatch extends Component {
       isRunning: false,
       timeElapsed: this.getTime(),
     };
-
-    this.getUpdValues = this.getUpdValues.bind(this);
   }
 
 
@@ -62,7 +58,7 @@ class Stopwatch extends Component {
     const {isRunning, timeElapsed} = this.state;
     return (
       <div className="elapsedtime-container">
-        <TimeElapsed id="timer" timeElapsed={timeElapsed} userTime={this.props.element} getUpdValues={this.getUpdValues}/>
+        <TimeElapsed id="timer" timeElapsed={timeElapsed} getUpdValues={this.getUpdValues}/>
         <button className="timerButton" onClick={this.toggle}>
           {isRunning ? 'Stop' : 'Start'}
         </button>
