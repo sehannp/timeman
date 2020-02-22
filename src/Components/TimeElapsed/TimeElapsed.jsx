@@ -62,7 +62,6 @@ class TimeElapsed extends Component {
         </div>
         : <input type="text" value={this.state.inputVal} onChange={(event) => this.handleInput(event)}/>
       }
-      
       </div>
       
     );

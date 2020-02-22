@@ -5,16 +5,28 @@ class Stopwatch extends Component {
   constructor(props) {
     super(props);
     
-    ["update", "reset", "toggle","getTime", "getUpdValues"].forEach((method) => {
+    ["update", "reset", "toggle","getTime", "getUpdValues", "onSubmit"].forEach((method) => {
         this[method] = this[method].bind(this);
     });
 
     this.state = this.initialState = {
       isRunning: false,
       timeElapsed: this.getTime(),
+      submitted: false
     };
   }
 
+  onSubmit(){
+    this.setState({submitted: true, isRunning: false});
+
+    const seconds = (this.state.timeElapsed / 1000) 
+    const units =  {
+        min: Math.floor(seconds / 60).toString(),
+        sec: Math.floor(seconds % 60).toString(),
+        msec: (seconds % 1).toFixed(3).substring(2)
+    }
+    this.props.onTotalHours(units.min+":"+units.sec+"."+units.msec+" Minutes");
+  }
 
   getTime() {
     if (this.props.element.startime)
@@ -29,7 +41,6 @@ class Stopwatch extends Component {
 
   getUpdValues(value) {
     this.setState({timeElapsed:value});
-    console.log(this.state.timeElapsed);
   };
 
   toggle() {
@@ -59,9 +70,11 @@ class Stopwatch extends Component {
     return (
       <div className="elapsedtime-container">
         <TimeElapsed id="timer" timeElapsed={timeElapsed} getUpdValues={this.getUpdValues}/>
-        <button className="Button" onClick={this.toggle}>
+        <button className="Button" onClick={this.toggle} disabled={this.state.submitted} hidden={this.state.submitted}>
           {isRunning ? 'Stop' : 'Start'}
         </button>
+        <button type="button" className="Button" disabled={this.state.submitted || isRunning } hidden={this.state.submitted} onClick={()=> this.onSubmit()}>Submit Hours</button>
+        <p hidden={!this.state.submitted}>Hours Submitted</p>
       </div>
     );
   }

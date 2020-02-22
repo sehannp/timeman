@@ -11,7 +11,7 @@ class AllActs extends Component {
                     
                 </div>
                 { data.map((element,index) => {
-                    return(<Act key={index} element={element}></Act>)
+                    return(<Act key={index} element={element} onTotalHours={this.props.onTotalHours}></Act>)
                 })}
                 <div className="tf">
                     

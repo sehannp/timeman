@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import Timer from '../Timer/Timer';
+import './Act.styles.css';
 
 class Act extends Component {
     constructor(props){
-        super();
+        super(props);
         this.state = {
             started : false
         }
@@ -21,7 +22,7 @@ class Act extends Component {
         return(
             <div key={index} className="act-container">
                 <p key={index}>{element.activity}</p>
-                <Timer key={index} element={element}></Timer>
+                <Timer key={index} element={element} onTotalHours={this.props.onTotalHours}></Timer>
             </div>
         )
     }

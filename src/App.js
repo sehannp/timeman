@@ -12,8 +12,11 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      activities: []}
+      activities: [],
+      totalHours: 0
+    }
     this.onSubmit = this.onSubmit.bind(this);
+    this.onTotalHours = this.onTotalHours.bind(this);
   }
 
   onSubmit(activity,startime, endtime){
@@ -23,6 +26,10 @@ class App extends Component {
         {activity,startime, endtime}
       ]
     });
+  }
+
+  onTotalHours(totalHours){
+    this.setState({totalHours})
   }
 
   render() {
@@ -45,10 +52,15 @@ class App extends Component {
         
         <div className="today">
           <p>All Entries:</p>
-          <AllActs data={this.state.activities}></AllActs>
+          <AllActs data={this.state.activities} onTotalHours={this.onTotalHours}></AllActs>
         </div>
-         
-         
+        <hr/>
+
+        <div className="today">
+          <h1>Total Productive Hours</h1>
+            <p>{this.state.totalHours}</p> 
+        </div>
+        <hr/>
         {/*
         <Footer></Footer> */}
       </div>
