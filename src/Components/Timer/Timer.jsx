@@ -59,7 +59,7 @@ class Stopwatch extends Component {
     return (
       <div className="elapsedtime-container">
         <TimeElapsed id="timer" timeElapsed={timeElapsed} getUpdValues={this.getUpdValues}/>
-        <button className="timerButton" onClick={this.toggle}>
+        <button className="Button" onClick={this.toggle}>
           {isRunning ? 'Stop' : 'Start'}
         </button>
       </div>

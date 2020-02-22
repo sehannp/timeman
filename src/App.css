@@ -1,5 +1,12 @@
 * {
-    background-color: black;
-    color: blue;
+    background-image: url('./Assets/bacl.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #ff8000;
 }
 
+.today{
+    padding: 20px;
+}

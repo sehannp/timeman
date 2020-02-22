@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header></Header>
-  
+        <hr/>
         <div className="clocks">
           <h1>Clocks</h1>
           <ClockNow></ClockNow>
@@ -38,11 +38,13 @@ class App extends Component {
 
         <div className="today">
           <h1>Today's Activity Log</h1>
+          <p>Add Entry:</p>
           <AddEntry onClicker={this.onSubmit}></AddEntry>
         </div>
         <hr/>
         
-        <div>
+        <div className="today">
+          <p>All Entries:</p>
           <AllActs data={this.state.activities}></AllActs>
         </div>
          

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import './AddEntry.styles.css';
 class AddEntry extends Component{
     constructor(props) {
         super();
@@ -27,12 +27,14 @@ class AddEntry extends Component{
     //now do sanitization as well
     render() {
         return (
-            <div className="Addentry Container">
-                <form>
+            <div className="Addentry-Container">
+                <form >
+                    <div className="addEntry-form">
                     <input 
                         type="text" 
                         id="activity" 
                         value={this.state.activity} 
+                        placeholder={"Activity Name"}
                         onChange={e => this.setState({activity: e.target.value})}
                     />
                     <input 
@@ -40,6 +42,7 @@ class AddEntry extends Component{
                         id="starttime" 
                         name="starttime" 
                         value={this.state.starttime} 
+                        placeholder={"Start Time"}
                         onChange={e => this.setState({starttime: e.target.value})}
                     />
                     <input 
@@ -47,12 +50,14 @@ class AddEntry extends Component{
                         id="endtime" 
                         name="endtime" 
                         value={this.state.endtime} 
+                        placeholder={"End Time"}
                         onChange={e => this.setState({endtime: e.target.value})}
                     />
 
-                    <button type="submit" onClick={(event) => this.handleSubmit(event)}
+                    <button className="Button" type="submit" onClick={(event) => this.handleSubmit(event)}
                     >
                     Go</button>
+                    </div>
                 </form>
             </div>
         );

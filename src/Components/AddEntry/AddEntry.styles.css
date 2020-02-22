@@ -1,0 +1,16 @@
+.addEntry-form{
+    display: grid;
+    width: 70%;
+    grid-template-columns: 20% 20% 20% 10%;
+    grid-column-gap: 15px;
+    height: 40px;
+}
+
+::placeholder { 
+    color: #ff8000;
+    opacity: 0.5; 
+}
+
+input{
+    border-radius: 10px;
+}
