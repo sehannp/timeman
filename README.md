@@ -11,10 +11,14 @@ It has the following features:
   * [x] Manual time setting feature at start.
   * [x] Manual time setting feature even after stop.
   * [ ] Reordering list
-  * [ ] Total productive hours display
+  * [x] Total productive hours display
   * [ ] Submit button for full logs
 - [ ] Dark mode and Light Mode for UI
 - [ ] Implementation of React redux to allow for scalability
 - [ ] Store today's data persistently in the browser.
 - [ ] Allow to store daily data on server (expressjs/adonisjs)
 - [ ] Dashboard for metrics for week
+- [ ] Other pages using React Router
+  * [ ] About Page
+  * [ ] User Page
+  * [ ] Submit Page
