@@ -23,3 +23,7 @@ It has the following features:
   * [ ] User Page
   * [ ] Submit Page
 - [x] Welcome quote on main page
+
+
+# Issues:
+- [ ] Total Hours does not get added correctly
