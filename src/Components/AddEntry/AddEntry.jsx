@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+
 import './AddEntry.styles.css';
+import {addActivity} from '../../redux/activity/activityAction';
+
 class AddEntry extends Component{
     constructor(props) {
         super();
@@ -10,9 +14,14 @@ class AddEntry extends Component{
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
     handleSubmit(event){
         event.preventDefault();
-        this.props.onClicker(this.state.activity,this.state.starttime,this.state.endtime);
+        this.props.addActivity(
+            {activity: this.state.activity,
+             starttime:this.state.starttime,
+             endtime: this.state.endtime}
+        );
 
         this.setState(
             {
@@ -64,4 +73,8 @@ class AddEntry extends Component{
     }
 }
 
-export default AddEntry;
+const mapDispatchToProps = dispatch => ({
+    addActivity: activity => dispatch(addActivity(activity))
+})
+
+export default connect(null,mapDispatchToProps)(AddEntry);

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
+import{connect} from 'react-redux';
+
 import Header from './Components/Header/Header';
 import ClockNow from './Components/Clocknow/ClockNow';
 import AddEntry from './Components/AddEntry/AddEntry';
@@ -7,20 +9,11 @@ import AllActs from './Components/AllActs/AllActs';
 
 // import Footer from './Components/Footer';
 
-
+import {addQuote} from './redux/app/appAction';
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-      activities: [],
-      totalHours: 0,
-      quote: ''
-    }
-    this.onSubmit = this.onSubmit.bind(this);
-    this.onTotalHours = this.onTotalHours.bind(this);
-  }
 
   componentDidMount(){
+
     fetch("https://type.fit/api/quotes")
     .then(function(response) {
       return response.json();
@@ -32,32 +25,20 @@ class App extends Component {
       return (data[datecount]);
     })
     .then(data => {
-      this.setState({quote:'"'+data.text+'" - '+data.author});
+      this.props.addQuote('"'+data.text+'" - '+data.author);
     })
       
   }
   
-  onSubmit(activity,startime, endtime){
-    this.setState({
-      activities: [
-        ...this.state.activities,
-        {activity,startime, endtime}
-      ]
-    });
-  }
-
-  onTotalHours(totalHours){
-    this.setState({totalHours})
-  }
-
   render() {
+    const {totalHours,quote} = this.props;
     return (
       <div className="App">
         <Header></Header>
         <hr/>
         <div className="clocks">
           <h1>Quote for the Day</h1>
-            <blockquote cite="https://type.fit/api/quotes">{this.state.quote}</blockquote>
+            <blockquote cite="https://type.fit/api/quotes">{quote}</blockquote>
         </div>
         <hr/>
         <div className="clocks">
@@ -69,19 +50,19 @@ class App extends Component {
         <div className="today">
           <h1>Today's Activity Log</h1>
           <p>Add Entry:</p>
-          <AddEntry onClicker={this.onSubmit}></AddEntry>
+          <AddEntry></AddEntry>
         </div>
         <hr/>
         
         <div className="today">
           <p>All Entries:</p>
-          <AllActs data={this.state.activities} onTotalHours={this.onTotalHours}></AllActs>
+          <AllActs></AllActs>
         </div>
         <hr/>
 
         <div className="today">
           <h1>Total Productive Hours</h1>
-            <p>{this.state.totalHours}</p> 
+            <p>{totalHours}</p> 
         </div>
         <hr/>
         {/*
@@ -93,4 +74,13 @@ class App extends Component {
   
 }
 
-export default App;
+const mapStateToProps = state => ({
+  totalHours: state.activity.totalHours,
+  quote: state.app.quote
+});
+
+const mapDispatchToProps = dispatch => ({
+  addQuote: quote => dispatch(addQuote(quote))
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);

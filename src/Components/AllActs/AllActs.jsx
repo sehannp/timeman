@@ -1,17 +1,19 @@
 import React,  {Component}from 'react';
+import {connect} from 'react-redux';
+
 import './AllActs.styles.css';
 import Act from '../Act/Act';
 
 class AllActs extends Component {
     render() {
-        const data = this.props.data;
+    const activities = this.props.activities;
         return(
             <div className="allacts">
                 <div className="th">
                     
                 </div>
-                { data.map((element,index) => {
-                    return(<Act key={index} element={element} onTotalHours={this.props.onTotalHours}></Act>)
+                { activities.map((element,index) => {
+                    return(<Act key={index} element={element}></Act>)
                 })}
                 <div className="tf">
                     
@@ -21,4 +23,8 @@ class AllActs extends Component {
     }
 }
 
-export default AllActs;
+const mapStateToProps = state => ({
+    activities: state.activity.activities,
+});
+
+export default connect(mapStateToProps)(AllActs);

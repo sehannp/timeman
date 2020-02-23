@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import TimeElapsed from '../TimeElapsed/TimeElapsed';
 import './Timer.styles.css';
+import {connect} from 'react-redux';
+import {updateTotalHours} from '../../redux/activity/activityAction';
+
 class Stopwatch extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +28,7 @@ class Stopwatch extends Component {
         sec: Math.floor(seconds % 60).toString(),
         msec: (seconds % 1).toFixed(3).substring(2)
     }
-    this.props.onTotalHours(units.min+":"+units.sec+"."+units.msec+" Minutes");
+    this.props.updateTotalHours(units.min+":"+units.sec+"."+units.msec+" Minutes");
   }
 
   getTime() {
@@ -80,6 +83,11 @@ class Stopwatch extends Component {
   }
 }
   
-export default Stopwatch;
+
+const mapDispatchToProps = dispatch => ({
+  updateTotalHours: totalHours => dispatch(updateTotalHours(totalHours))
+})
+
+export default connect(null,mapDispatchToProps)(Stopwatch);
 
 // Timer code inspired from vakhtang. credits : https://jsfiddle.net/vakhtang/j276r2zh/
