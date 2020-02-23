@@ -28,10 +28,10 @@ class Stopwatch extends Component {
   }
 
   getTime() {
-    if (this.props.element.startime && this.props.element.endtime)
+    if (this.props.element.starttime && this.props.element.endtime)
     {
-      const {startime, endtime} = this.props.element;
-      const startSec = parseInt(startime.split(":")[0]) * 60 + parseInt(startime.split(":")[1]);
+      const {starttime, endtime} = this.props.element;
+      const startSec = parseInt(starttime.split(":")[0]) * 60 + parseInt(starttime.split(":")[1]);
       const endSec = parseInt(endtime.split(":")[0]) * 60 + parseInt(endtime.split(":")[1]);
       return (Math.ceil(endSec - startSec))*1000;
     }
