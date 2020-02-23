@@ -11,18 +11,24 @@ class AddEntry extends Component{
             activity : "",
             starttime : "",
             endtime : ""
-        }
+        };
+        
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    static increaseCount() {
+        return AddEntry.count += 1;
+    }
+    
     handleSubmit(event){
         event.preventDefault();
         this.props.addActivity(
-            {activity: this.state.activity,
+            {
+             id: AddEntry.increaseCount(),
+             activity: this.state.activity,
              starttime:this.state.starttime,
              endtime: this.state.endtime}
         );
-
         this.setState(
             {
                 activity : "",
@@ -77,6 +83,8 @@ class AddEntry extends Component{
         );
     }
 }
+
+AddEntry.count = 0;
 
 const mapDispatchToProps = dispatch => ({
     addActivity: activity => dispatch(addActivity(activity))

@@ -10,14 +10,35 @@ const activityReducer = (currentState=INITIAL_STATE,action) => {
                 ...currentState,
                 activities : [
                     ...currentState.activities,
-                    action.payload
+                    {
+                        ...action.payload
+                    }
+
                 ]
             };
+
         case 'UPDATE_TOTALHOURS':
+            const newActivities = currentState.activities.map((activity) => {
+                if(activity.id === action.payload.id){
+                    return {
+                        ...activity,
+                        logHours: action.payload.logHours
+                    }
+                }
+                return {
+                   ...activity,
+                   logHours: activity.logHours || 0
+                };
+            });
+
             return {
                 ...currentState,
-                totalHours : action.payload
+                activities: [
+                    ...newActivities
+                ],
+                totalHours : newActivities.reduce( function(tot, b) { return tot + b.logHours; }, 0)
             };
+
         default: 
             return currentState;
     };

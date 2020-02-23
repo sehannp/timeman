@@ -62,7 +62,7 @@ class App extends Component {
 
         <div className="today">
           <h1>Total Productive Hours</h1>
-            <p>{totalHours}</p> 
+            <p>{totalHours + " mins"}</p> 
         </div>
         <hr/>
         {/*

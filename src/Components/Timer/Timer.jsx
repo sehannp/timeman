@@ -22,17 +22,13 @@ class Stopwatch extends Component {
   onSubmit(){
     this.setState({submitted: true, isRunning: false});
 
-    const seconds = (this.state.timeElapsed / 1000) 
-    const units =  {
-        min: Math.floor(seconds / 60).toString(),
-        sec: Math.floor(seconds % 60).toString(),
-        msec: (seconds % 1).toFixed(3).substring(2)
-    }
-    this.props.updateTotalHours(units.min+":"+units.sec+"."+units.msec+" Minutes");
+    const mins = (this.state.timeElapsed / 60000) 
+
+    this.props.updateTotalHours(mins,this.props.element.id);
   }
 
   getTime() {
-    if (this.props.element.startime)
+    if (this.props.element.startime && this.props.element.endtime)
     {
       const {startime, endtime} = this.props.element;
       const startSec = parseInt(startime.split(":")[0]) * 60 + parseInt(startime.split(":")[1]);
@@ -85,7 +81,7 @@ class Stopwatch extends Component {
   
 
 const mapDispatchToProps = dispatch => ({
-  updateTotalHours: totalHours => dispatch(updateTotalHours(totalHours))
+  updateTotalHours: (logHours,id) => dispatch(updateTotalHours({logHours,id}))
 })
 
 export default connect(null,mapDispatchToProps)(Stopwatch);
