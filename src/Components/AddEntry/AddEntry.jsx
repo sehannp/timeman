@@ -32,6 +32,10 @@ class AddEntry extends Component{
         )
     }
 
+    onChange(target){
+        this.setState({[target.name]:target.value})
+    }
+
     //pull setState off to another function, use obj.assign to assign the prop to state. the pulled function should 
     //now do sanitization as well
     render() {
@@ -44,7 +48,8 @@ class AddEntry extends Component{
                         id="activity" 
                         value={this.state.activity} 
                         placeholder={"Activity Name"}
-                        onChange={e => this.setState({activity: e.target.value})}
+                        name={"activity"}
+                        onChange={e => this.onChange(e.target)}
                     />
                     <input 
                         type="time-local" 
@@ -52,7 +57,7 @@ class AddEntry extends Component{
                         name="starttime" 
                         value={this.state.starttime} 
                         placeholder={"Start Time"}
-                        onChange={e => this.setState({starttime: e.target.value})}
+                        onChange={e => this.onChange(e.target)}
                     />
                     <input 
                         type="time-local" 
@@ -60,7 +65,7 @@ class AddEntry extends Component{
                         name="endtime" 
                         value={this.state.endtime} 
                         placeholder={"End Time"}
-                        onChange={e => this.setState({endtime: e.target.value})}
+                        onChange={e => this.onChange(e.target)}
                     />
 
                     <button className="Button" type="submit" onClick={(event) => this.handleSubmit(event)}
