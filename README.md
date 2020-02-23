@@ -27,3 +27,6 @@ It has the following features:
 
 # Issues:
 - [ ] Total Hours does not get added correctly
+
+# Design Considerations:
+- [ ] Timer has local state rather than Redux. Since this is rapidly changing value, and no other compoenent other than ElapsedTime require it, it is better to be placed in local state than Redux.
