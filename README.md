@@ -18,7 +18,7 @@ It has the following features:
 - [ ] Store today's data persistently in the browser.
 - [ ] Allow to store daily data on server (expressjs/adonisjs)
 - [ ] Dashboard for metrics for week
-- [ ] Other pages using React Router
+- [x] Other pages using React Router
   * [ ] About Page
   * [ ] User Page
   * [ ] Submit Page
@@ -29,4 +29,4 @@ It has the following features:
 ~~- [x] Total Hours does not get added correctly~~
 
 # Design Considerations:
-- [ ] Timer has local state rather than Redux. Since this is rapidly changing value, and no other compoenent other than ElapsedTime require it, it is better to be placed in local state than Redux.
+- Timer has local state rather than Redux. Since this is rapidly changing value, and no other compoenent other than ElapsedTime require it, it is better to be placed in local state than Redux.
