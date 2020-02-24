@@ -15,7 +15,7 @@ It has the following features:
   * [x] Submit button for full logs
 - [ ] Dark mode and Light Mode for UI
 - [x] Implementation of React redux to allow for scalability
-- [ ] Store today's data persistently in the browser.
+- [x] Store today's data persistently in the browser.
 - [ ] Allow to store daily data on server (expressjs/adonisjs)
 - [ ] Dashboard for metrics for week
 - [x] Other pages using React Router
