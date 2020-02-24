@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Header.styles.css';
-
+import { Link } from "react-router-dom";
 class Header extends Component {
 
     constructor(){
@@ -16,8 +16,9 @@ class Header extends Component {
             <div className="header-container">
                 <div className="navigation">
                     <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/">About</a></li>
+                        <li><Link to="/home">Home</Link></li>
+                        <li><Link to="/user">User</Link></li>
+                        <li><Link to="/about">About</Link></li>
                     </ul>
                 </div>
                 <div className='user'>
